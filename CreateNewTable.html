@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+
+      #wrapper {
+        padding-left: 0;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      #wrapper.toggled {
+        padding-left: 250px;
+      }
+
+      #sidebar-wrapper {
+        z-index: 1000;
+        position: fixed;
+        left: 250px;
+        width: 0;
+        height: 100%;
+        margin-left: -250px;
+        overflow-y: auto;
+        background: #FFF;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+      }
+
+      #page-content-wrapper {
+        width: 100%;
+        position: absolute;
+        padding: 15px;
+      }
+
+      #wrapper.toggled #page-content-wrapper {
+        position: absolute;
+        margin-right: -250px;
+      }
+
+
+      /* Sidebar Styles */
+
+      .sidebar-nav {
+        position: absolute;
+        top: 0;
+        width: 250px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sidebar-nav li {
+        text-indent: 20px;
+        line-height: 40px;
+      }
+
+      .sidebar-nav li a {
+        display: block;
+        text-decoration: none;
+        color: #000;
+      }
+
+      .sidebar-nav li a:hover {
+        text-decoration: none;
+        color: #999999;
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .sidebar-nav li a:active, .sidebar-nav li a:focus {
+        text-decoration: none;
+      }
+
+      .sidebar-nav li span{
+        display: block;
+        text-decoration: none;
+        color: #000;
+      }
+
+      .sidebar-nav>.sidebar-brand {
+        height: 65px;
+        font-size: 18px;
+        line-height: 60px;
+      }
+
+      .sidebar-nav>.sidebar-brand a {
+        color: #999999;
+      }
+
+      .sidebar-nav>.sidebar-brand a:hover {
+        color: #fff;
+        background: none;
+      }
+
+      @media(min-width:768px) {
+        #wrapper {
+          padding-left: 0;
+        }
+        #wrapper.toggled {
+          padding-left: 250px;
+        }
+        #sidebar-wrapper {
+          width: 0;
+        }
+        #wrapper.toggled #sidebar-wrapper {
+          width: 250px;
+        }
+        #page-content-wrapper {
+          padding: 20px;
+          position: relative;
+        }
+        #wrapper.toggled #page-content-wrapper {
+          position: relative;
+          margin-right: 0;
+        }
+      }
+
+      .toggle-but{
+        color:#000;
+      }
+
+      .m-main-page{
+        width: 100%;
+
+        position: relative;
+        width: 80%;
+        left:10%;
+      }
+
+
+      .m-main-title{
+        position: relative;
+        left: 0%;
+        top: 0%;
+      }
+    </style>
+
+    <title>navbar-main</title>
+  </head>
+  <body>
+     <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <span>Hi! Po Hsun</span>
+                </li>
+                <li>
+                    <a href="#">Sheet 1</a>
+                </li>
+                <li>
+                    <a href="#">Sheet 2</a>
+                </li>
+                <li>
+                    <a href="#">Sheet 3</a>
+                </li>
+                <li>
+                  <a href="#"><span class="glyphicon glyphicon-plus"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <nav class="navbar navbar-default">
+          <div class = "container-fluid">
+            <ul class = "nav navbar-nav navbar-left">
+              <li>
+                <a href="#menu-toggle" class="btn btn-light toggle-but" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+              </li>
+              <li>
+                <a class="" href="#">A-Count</a>
+              </li>
+            </ul>
+            <ul class = "nav navbar-nav navbar-right">
+              <li>
+                <a class="" href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <div class = "m-main-page">
+              <div class = "m-main-title">
+                <span class = title-text>Create a new accounting sheet</span>
+              </div>
+              <form class = "create-form">
+                <div class="form-group">
+                  <label for="email">Plan:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Big Bear Lake, Sun Non Dan...">
+                </div>
+              </form>
+
+              <div class = "m-main-power">
+                <span>power by TroyEast422</span>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+  </body>
+</html>
