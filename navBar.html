@@ -217,7 +217,7 @@
                   <div class = "form-group" id = "namesinput">
                     <label for="person-name" class = "name-fields-label">Names:</label>
                     <div class = "name-fields" id = "fields-of-name">
-                      <input class = "person-name-field" type = "text" id = "first" placeholder="Fisrt Person's Name">
+                      <input class = "person-name-field" type = "text" id = "first" placeholder="Person's Name">
                     </div>
                   </div>
                 </form>
@@ -352,7 +352,14 @@
       var pay_person = $("#who-select").val();
       //console.log(pay_person + " pays the bill");
 
-      //$(".collapse").toggle();
+      $(".collapse").collapse('hide');
+      $('#item').val('');
+      $("#price").val('');
+      $("input:checked").each(function(){
+        $(this).prop('checked', false);
+      });
+      $("#who-select").prop('selectedIndex',0);
+      
     }
 
     </script>
