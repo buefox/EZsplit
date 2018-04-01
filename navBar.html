@@ -141,6 +141,10 @@
         width: 80%;
         left: 10%;
       }
+
+      #who-select{
+        width: 20%;
+      }
     </style>
 
     <title>navbar-main</title>
@@ -229,13 +233,55 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
           <div class = "main-page">
-            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseAdditem" aria-expanded="false" aria-controls="collapseAdditem">
               Link with href
             </a>
 
-            <div class="collapse" id="collapseExample">
-              <div class="well">
-                ...
+            <div class="collapse cBody" id="collapseAdditem">
+              <div class="collapse-body well">
+                <h4 class="collapse-title" id="collapseLabel">Adding New Items</h4>
+                <form class = "create-table-form">
+                  <div class="form-group">
+                    <label for="item_name">Item:</label>
+                    <input type="text" class="form-control" id="item" placeholder="eg. Tickets, Chic-fil-A, Boba">
+                  </div>
+                  <div class="form-group">
+                    <label for="price_amount">Price:</label>
+                    <input type="text" class="form-control" id="price" placeholder="eg. 500, 10, 3.7">
+                  </div>
+                  <div class = "form-group">
+                    <label for="price_amount">Who involved:</label>
+                    <fieldset>
+                        <div>
+                          <input type="checkbox" id="person1" name="whosinvolving" value="1">
+                          <label for="person1">person1</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" id="person2" name="whosinvolving" value="2">
+                          <label for="person2">person2</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" id="person3" name="whosinvolving" value="3">
+                          <label for="person3">person3</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" id="person4" name="whosinvolving" value="4">
+                          <label for="person4">person4</label>
+                        </div>
+                    </fieldset>
+                  </div>
+                  <div class = "form-group">
+                    <label for="who-paying">Who paid?</label>
+                    <br>
+                    <select id = "who-select">
+                      <option value="1">person1</option>
+                      <option value="2">person2</option>
+                      <option value="3">person3</option>
+                      <option value="4">person4</option>
+                    </select>
+                  </div>
+                  <button type="button" class="btn btn-default" onclick = "Account()">Account!</button>
+                </form>
               </div>
             </div>
           </div>
