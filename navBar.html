@@ -233,7 +233,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
           <div class = "main-page">
-            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseAdditem" aria-expanded="false" aria-controls="collapseAdditem">
+            <a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseAdditem" aria-expanded="false" aria-controls="collapseAdditem">
               Link with href
             </a>
 
@@ -280,7 +280,7 @@
                       <option value="4">person4</option>
                     </select>
                   </div>
-                  <button type="button" class="btn btn-default" onclick = "Account()">Account!</button>
+                  <button type="button" class="btn btn-default accountBut">Account!</button>
                 </form>
               </div>
             </div>
@@ -331,9 +331,30 @@
 
       $('#myModal').hide();
       $('.modal-backdrop').hide();
-
-
     }
+
+    $(".accountBut").on("click", Account);
+
+    function Account(){
+      //console.log("I pressed");
+      var itName = $("#item").val();
+      //console.log("Item name: " + itName);
+      var priceAmount = $("#price").val();
+      //console.log("price: " + priceAmount);
+      var checkBoxArray = $("input:checked");
+      var total_checked = [];
+      checkBoxArray.each(function(){
+        total_checked.push($(this).val());
+      });
+
+      //console.log(total_checked);
+
+      var pay_person = $("#who-select").val();
+      //console.log(pay_person + " pays the bill");
+
+      //$(".collapse").toggle();
+    }
+
     </script>
   </body>
 </html>
