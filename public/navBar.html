@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+
+      #wrapper {
+        padding-left: 0;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      #wrapper.toggled {
+        padding-left: 250px;
+      }
+
+      #sidebar-wrapper {
+        z-index: 1000;
+        position: fixed;
+        left: 250px;
+        width: 0;
+        height: 100%;
+        margin-left: -250px;
+        overflow-y: auto;
+        background: #FFF;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+      }
+
+      #page-content-wrapper {
+        width: 100%;
+        position: absolute;
+        padding: 15px;
+      }
+
+      #wrapper.toggled #page-content-wrapper {
+        position: absolute;
+        margin-right: -250px;
+      }
+
+
+      /* Sidebar Styles */
+
+      .sidebar-nav {
+        position: absolute;
+        top: 0;
+        width: 250px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sidebar-nav li {
+        text-indent: 20px;
+        line-height: 40px;
+      }
+
+      .sidebar-nav li a {
+        display: block;
+        text-decoration: none;
+        color: #000;
+      }
+
+      .sidebar-nav li a:hover {
+        text-decoration: none;
+        color: #999999;
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .sidebar-nav li a:active, .sidebar-nav li a:focus {
+        text-decoration: none;
+      }
+
+      .sidebar-nav li span{
+        display: block;
+        text-decoration: none;
+        color: #000;
+      }
+
+      .sidebar-nav>.sidebar-brand {
+        height: 65px;
+        font-size: 18px;
+        line-height: 60px;
+      }
+
+      .sidebar-nav>.sidebar-brand a {
+        color: #999999;
+      }
+
+      .sidebar-nav>.sidebar-brand a:hover {
+        color: #fff;
+        background: none;
+      }
+
+      @media(min-width:768px) {
+        #wrapper {
+          padding-left: 0;
+        }
+        #wrapper.toggled {
+          padding-left: 250px;
+        }
+        #sidebar-wrapper {
+          width: 0;
+        }
+        #wrapper.toggled #sidebar-wrapper {
+          width: 250px;
+        }
+        #page-content-wrapper {
+          padding: 20px;
+          position: relative;
+        }
+        #wrapper.toggled #page-content-wrapper {
+          position: relative;
+          margin-right: 0;
+        }
+      }
+
+      .toggle-but{
+        color:#000;
+      }
+
+      .main-page{
+        position: relative;
+        width: 80%;
+        left: 10%;
+      }
+
+      #who-select{
+        width: 20%;
+      }
+    </style>
+
+    <title>navbar-main</title>
+  </head>
+  <body>
+     <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <span>Hi! Po Hsun</span>
+                </li>
+                <li>
+                    <a href="#">Sheet 1</a>
+                </li>
+                <li>
+                    <a href="#">Sheet 2</a>
+                </li>
+                <li>
+                    <a href="#">Sheet 3</a>
+                </li>
+                <li>
+                  <a data-toggle = "modal" href="#myModal"><span class="glyphicon glyphicon-plus"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <nav class="navbar navbar-default">
+          <div class = "container-fluid">
+            <ul class = "nav navbar-nav navbar-left">
+              <li>
+                <a href="#menu-toggle" class="btn btn-light toggle-but" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+              </li>
+              <li>
+                <a class="" href="#">A-Count</a>
+              </li>
+            </ul>
+            <ul class = "nav navbar-nav navbar-right">
+              <li>
+                <a class="" href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create your new plan</h4>
+              </div>
+              <div class="modal-body">
+                <form class = "create-table-form">
+                  <div class="form-group">
+                    <label for="plan_name">Plan:</label>
+                    <input type="text" class="form-control" id="plan" placeholder="eg. Big Bear Lake, NYY vs BOS">
+                  </div>
+                  <div class = "form-group">
+                    <label for="number-of-people">Numbers of People</label>
+                    <br>
+                    <select id = "amount-select" onchange = "peopleChange()">
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                      <option value="4">Four</option>
+                    </select>
+                  </div>
+                  <div class = "form-group" id = "namesinput">
+                    <label for="person-name" class = "name-fields-label">Names:</label>
+                    <div class = "name-fields" id = "fields-of-name">
+                      <input class = "person-name-field" type = "text" id = "first" placeholder="Person's Name">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" onclick = "readySetGo()">Let's Go</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <div class = "main-page">
+            <a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseAdditem" aria-expanded="false" aria-controls="collapseAdditem">
+              Add a item
+            </a>
+
+            <a class="btn btn-default" role="button"  href="#">
+              Export to Google Sheet
+            </a>
+
+            <div class="collapse cBody" id="collapseAdditem">
+              <div class="collapse-body well">
+                <h4 class="collapse-title" id="collapseLabel">Adding New Items</h4>
+                <form class = "create-table-form">
+                  <div class="form-group">
+                    <label for="item_name">Item:</label>
+                    <input type="text" class="form-control" id="item" placeholder="eg. Tickets, Chic-fil-A, Boba">
+                  </div>
+                  <div class="form-group">
+                    <label for="price_amount">Price:</label>
+                    <input type="text" class="form-control" id="price" placeholder="eg. 500, 10, 3.7">
+                  </div>
+                  <div class = "form-group">
+                    <label for="price_amount">Who involved:</label>
+                    <fieldset>
+                        <div>
+                          <input type="checkbox" id="person1" name="whosinvolving" value="1">
+                          <label for="person1">person1</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" id="person2" name="whosinvolving" value="2">
+                          <label for="person2">person2</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" id="person3" name="whosinvolving" value="3">
+                          <label for="person3">person3</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" id="person4" name="whosinvolving" value="4">
+                          <label for="person4">person4</label>
+                        </div>
+                    </fieldset>
+                  </div>
+                  <div class = "form-group">
+                    <label for="who-paying">Who paid?</label>
+                    <br>
+                    <select id = "who-select">
+                      <option value="1">person1</option>
+                      <option value="2">person2</option>
+                      <option value="3">person3</option>
+                      <option value="4">person4</option>
+                    </select>
+                  </div>
+                  <button type="button" class="btn btn-default accountBut">Account!</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    function peopleChange(){
+      var x = document.getElementById("amount-select").value;
+
+      var target = "";
+
+      for( i = 0; i < x; i++){
+        target += `<div><input class = "person-name-field" type = "text" id = "person` + i + `" placeholder=" Person's Name"></div>`;
+      }
+      //console.log("target");
+      document.getElementById("fields-of-name").innerHTML = target;
+    }
+
+    function readySetGo(){
+      var plan_name = document.getElementById("plan").value;
+      console.log("get the name " + plan_name);
+      var numOfPeople = document.getElementById("amount-select").value;
+      var persons = document.getElementsByClassName("person-name-field");
+      console.log(persons.length);
+      var personNames = [];
+      for(i = 0; i < numOfPeople; i++){
+        personNames.push(persons[i].value);
+      }
+      console.log("total player: " + numOfPeople);
+      console.log("personNames: " + personNames);
+
+      document.getElementById("plan").value = "";
+      document.getElementById("amount-select").value = 1;
+      peopleChange();
+
+      $('#myModal').hide();
+      $('.modal-backdrop').hide();
+    }
+
+    $(".accountBut").on("click", Account);
+
+    function Account(){
+      //console.log("I pressed");
+      var itName = $("#item").val();
+      //console.log("Item name: " + itName);
+      var priceAmount = $("#price").val();
+      //console.log("price: " + priceAmount);
+      var checkBoxArray = $("input:checked");
+      var total_checked = [];
+      checkBoxArray.each(function(){
+        total_checked.push($(this).val());
+      });
+
+      //console.log(total_checked);
+
+      var pay_person = $("#who-select").val();
+      //console.log(pay_person + " pays the bill");
+
+      $(".collapse").collapse('hide');
+      $('#item').val('');
+      $("#price").val('');
+      $("input:checked").each(function(){
+        $(this).prop('checked', false);
+      });
+      $("#who-select").prop('selectedIndex',0);
+      
+    }
+
+    </script>
+  </body>
+</html>
